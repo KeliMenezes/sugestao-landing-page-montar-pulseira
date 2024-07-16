@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monte sua Pulseira</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Monte sua Pulseira</h1>
+        <div class="seletor-cor">
+            <label for="cor-micanga">Escolha uma cor de miçanga:</label>
+            <input type="color" id="cor-micanga">
+            <button onclick="adicionarMicanga()">Adicionar Miçanga</button>
+        </div>
+        <div class="sequencia-pulseira" id="sequencia-pulseira">
+            <!-- Miçangas aparecerão aqui -->
+        </div>
+        <button onclick="limparPulseira()">Limpar Pulseira</button>
+        <button onclick="salvarPulseira()">Salvar Pulseira</button>
+        <button onclick="carregarPulseira()">Carregar Pulseira Salva</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
