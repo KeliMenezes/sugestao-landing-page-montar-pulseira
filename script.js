@@ -1,39 +1,45 @@
-let coresPulseira = [];
+// Função para adicionar miçanga
+const adicionarMicanga = (cor) => {
+    const micanga = document.createElement('div');
+    micanga.style.backgroundColor = cor;
+    micanga.className = 'micanga';
+    document.getElementById('sequencia-pulseira').appendChild(micanga);
+};
 
-const adicionarMicanga = () => {
-    const cor = document.getElementById('cor-micanga').value;
-    coresPulseira.push(cor);
-    atualizarExibicaoPulseira();
-}
-
+// Função para limpar a pulseira
 const limparPulseira = () => {
-    coresPulseira = [];
-    atualizarExibicaoPulseira();
-}
+    document.getElementById('sequencia-pulseira').innerHTML = '';
+};
 
-const atualizarExibicaoPulseira = () => {
-    const sequenciaPulseira = document.getElementById('sequencia-pulseira');
-    sequenciaPulseira.innerHTML = '';
-    coresPulseira.forEach(cor => {
-        const micanga = document.createElement('div');
-        micanga.className = 'micanga';
-        micanga.style.backgroundColor = cor;
-        sequenciaPulseira.appendChild(micanga);
-    });
-}
-
+// Função para salvar a pulseira
 const salvarPulseira = () => {
-    localStorage.setItem('coresPulseira', JSON.stringify(coresPulseira));
+    const sequencia = document.getElementById('sequencia-pulseira').innerHTML;
+    localStorage.setItem('pulseira', sequencia);
     alert('Pulseira salva com sucesso!');
-}
+};
 
+// Função para carregar a pulseira salva
 const carregarPulseira = () => {
-    const coresSalvas = JSON.parse(localStorage.getItem('coresPulseira'));
-    if (coresSalvas) {
-        coresPulseira = coresSalvas;
-        atualizarExibicaoPulseira();
-        alert('Pulseira carregada com sucesso!');
+    const sequencia = localStorage.getItem('pulseira');
+    if (sequencia) {
+        document.getElementById('sequencia-pulseira').innerHTML = sequencia;
     } else {
         alert('Nenhuma pulseira salva encontrada.');
     }
-}
+};
+
+// Função para validar o formulário
+const validarFormulario = () => {
+    const nome = document.getElementById('nome').value;
+    const email = document.getElementById('email').value;
+    const senha = document.getElementById('senha').value;
+    const endereco = document.getElementById('endereco').value;
+    const telefone = document.getElementById('telefone').value;
+
+    if (nome === '' || email === '' || senha === '' || endereco === '' || telefone === '') {
+        alert('Por favor, preencha todos os campos obrigatórios.');
+        return false;
+    }
+    alert('Cadastro realizado com sucesso!');
+    return true;
+};

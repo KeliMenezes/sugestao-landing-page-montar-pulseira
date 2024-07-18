@@ -10,16 +10,49 @@
     <div class="container">
         <h1>Monte sua Pulseira</h1>
         <div class="seletor-cor">
-            <label for="cor-micanga">Escolha uma cor de miçanga:</label>
-            <input type="color" id="cor-micanga">
-            <button onclick="adicionarMicanga()">Adicionar Miçanga</button>
+            <label>Escolha uma cor de miçanga:</label>
+            <div class="paleta-cores">
+                <div class="cor" style="background-color: #008000;" onclick="adicionarMicanga('#008000')"></div> <!-- Verde -->
+                <div class="cor" style="background-color: #FF0000;" onclick="adicionarMicanga('#FF0000')"></div> <!-- Vermelho -->
+                <div class="cor" style="background-color: #6a0dad;" onclick="adicionarMicanga('#6a0dad')"></div> <!-- Lilás -->
+                <div class="cor" style="background-color: #800080;" onclick="adicionarMicanga('#800080')"></div> <!-- Roxo -->
+                <div class="cor" style="background-color: #000000;" onclick="adicionarMicanga('#000000')"></div> <!-- Preto -->
+                <div class="cor" style="background-color: #FFFFFF;" onclick="adicionarMicanga('#FFFFFF')"></div> <!-- Branco -->
+                <div class="cor" style="background-color: #FFD700;" onclick="adicionarMicanga('#FFD700')"></div> <!-- Amarelo -->
+                <div class="cor" style="background-color: #0000FF;" onclick="adicionarMicanga('#0000FF')"></div> <!-- Azul -->
+                <div class="cor" style="background-color: #8B4513;" onclick="adicionarMicanga('#8B4513')"></div> <!-- Marrom -->
+            </div>
         </div>
         <div class="sequencia-pulseira" id="sequencia-pulseira">
-            <!-- Miçangas aparecerão aqui -->
         </div>
         <button onclick="limparPulseira()">Limpar Pulseira</button>
         <button onclick="salvarPulseira()">Salvar Pulseira</button>
         <button onclick="carregarPulseira()">Carregar Pulseira Salva</button>
+        
+        <h2>Cadastro de Clientes</h2>
+        <form id="form-cadastro" onsubmit="return validarFormulario()">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="endereco">Endereço:</label>
+                <input type="text" id="endereco" name="endereco" required>
+            </div>
+            <div class="form-group">
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" required>
+            </div>
+            <div class="form-group">
+                <label for="sugestoes">Sugestões:</label>
+                <textarea id="sugestoes" name="sugestoes" rows="4"></textarea>
+            </div>
+            <button type="submit">Cadastrar</button>
+        </form>
     </div>
     <script src="script.js"></script>
 </body>
